@@ -174,7 +174,6 @@
 				704D4D7925358F1800ECEB5F /* Sources */,
 				704D4D7A25358F1800ECEB5F /* Frameworks */,
 				704D4D7B25358F1800ECEB5F /* Resources */,
-				DD25D3EB726C1EA2E089918A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -291,23 +290,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DD25D3EB726C1EA2E089918A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyChatApp/Pods-MyChatApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyChatApp/Pods-MyChatApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyChatApp/Pods-MyChatApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DF8E1D0062C0623ED8FAEDCF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
