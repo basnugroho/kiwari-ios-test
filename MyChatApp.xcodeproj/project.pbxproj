@@ -13,8 +13,6 @@
 		704D4D8825358F1800ECEB5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 704D4D8625358F1800ECEB5F /* Main.storyboard */; };
 		704D4D8A25358F1B00ECEB5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 704D4D8925358F1B00ECEB5F /* Assets.xcassets */; };
 		704D4D8D25358F1B00ECEB5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 704D4D8B25358F1B00ECEB5F /* LaunchScreen.storyboard */; };
-		704D4D9825358F1B00ECEB5F /* MyChatAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704D4D9725358F1B00ECEB5F /* MyChatAppTests.swift */; };
-		704D4DA325358F1C00ECEB5F /* MyChatAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704D4DA225358F1C00ECEB5F /* MyChatAppUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +42,7 @@
 		704D4D8C25358F1B00ECEB5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		704D4D8E25358F1B00ECEB5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		704D4D9325358F1B00ECEB5F /* MyChatAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyChatAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		704D4D9725358F1B00ECEB5F /* MyChatAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatAppTests.swift; sourceTree = "<group>"; };
-		704D4D9925358F1C00ECEB5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		704D4D9E25358F1C00ECEB5F /* MyChatAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyChatAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		704D4DA225358F1C00ECEB5F /* MyChatAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatAppUITests.swift; sourceTree = "<group>"; };
-		704D4DA425358F1C00ECEB5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				704D4D7F25358F1800ECEB5F /* MyChatApp */,
-				704D4D9625358F1B00ECEB5F /* MyChatAppTests */,
-				704D4DA125358F1C00ECEB5F /* MyChatAppUITests */,
 				704D4D7E25358F1800ECEB5F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,8 +93,9 @@
 			children = (
 				704D4D8025358F1800ECEB5F /* AppDelegate.swift */,
 				704D4D8225358F1800ECEB5F /* SceneDelegate.swift */,
-				704D4D8425358F1800ECEB5F /* ViewController.swift */,
-				704D4D8625358F1800ECEB5F /* Main.storyboard */,
+				704D4DB525358FBD00ECEB5F /* Models */,
+				704D4DB325358F7300ECEB5F /* Views */,
+				704D4DB425358F9B00ECEB5F /* Controllers */,
 				704D4D8925358F1B00ECEB5F /* Assets.xcassets */,
 				704D4D8B25358F1B00ECEB5F /* LaunchScreen.storyboard */,
 				704D4D8E25358F1B00ECEB5F /* Info.plist */,
@@ -110,22 +103,27 @@
 			path = MyChatApp;
 			sourceTree = "<group>";
 		};
-		704D4D9625358F1B00ECEB5F /* MyChatAppTests */ = {
+		704D4DB325358F7300ECEB5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				704D4D9725358F1B00ECEB5F /* MyChatAppTests.swift */,
-				704D4D9925358F1C00ECEB5F /* Info.plist */,
+				704D4D8625358F1800ECEB5F /* Main.storyboard */,
 			);
-			path = MyChatAppTests;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		704D4DA125358F1C00ECEB5F /* MyChatAppUITests */ = {
+		704D4DB425358F9B00ECEB5F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				704D4DA225358F1C00ECEB5F /* MyChatAppUITests.swift */,
-				704D4DA425358F1C00ECEB5F /* Info.plist */,
+				704D4D8425358F1800ECEB5F /* ViewController.swift */,
 			);
-			path = MyChatAppUITests;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		704D4DB525358FBD00ECEB5F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +266,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				704D4D9825358F1B00ECEB5F /* MyChatAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +273,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				704D4DA325358F1C00ECEB5F /* MyChatAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YNSGQYQJ6;
 				INFOPLIST_FILE = MyChatApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,7 +443,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.basnugroho.MyChatApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -458,6 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YNSGQYQJ6;
 				INFOPLIST_FILE = MyChatApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +463,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.basnugroho.MyChatApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
