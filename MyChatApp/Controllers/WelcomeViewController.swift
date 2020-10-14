@@ -10,6 +10,7 @@ import UIKit
 class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var registerButton: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,6 +24,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerButton.isHidden = true
         
         titleLabel.text = ""
         var index = 0.0

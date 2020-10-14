@@ -1,21 +1,17 @@
 //
-//  MessageCell.swift
+//  ChatCell.swift
 //  MyChatApp
 //
-//  Created by Baskoro Nugroho on 13/10/20.
+//  Created by Baskoro Nugroho on 14/10/20.
 //
 
 import UIKit
 
-class MessageCell: UITableViewCell {
+class ChatCell: UITableViewCell {
 
-    
-    @IBOutlet weak var messageBox: UIView!
-    @IBOutlet weak var senderNameLabel: UILabel!
-    
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

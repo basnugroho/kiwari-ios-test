@@ -22,9 +22,60 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        setCurrentUserName()
+        setCurrentSenderName()
+        // show name and image at navbar
+        if let sender = senderName {
+            addImageAndFriendNameAtNavbar(sender)
+        }
+        // fetch data from firestore
         loadMessages()
+        
+        // chat room appearance
+        tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
         messageTextField.backgroundColor = UIColor.white
+    }
+    
+    func addImageAndFriendNameAtNavbar(_ senderName: String) {
+        
+        var friendName = "Jarjit Singh"
+        var friendAvatar = "jarjit@mail.com"
+        if senderName == "Jarjit Singh" {
+            friendName = "Ismail bin Mail"
+            friendAvatar = "ismail@mail.com"
+        }
+        // Only execute the code if there's a navigation controller
+        if self.navigationController == nil {
+            return
+        }
+
+        // Create a navView to add to the navigation bar
+        let navView = UIView()
+
+        // Create the label
+        let label = UILabel()
+        label.text = friendName
+        label.sizeToFit()
+        label.center = navView.center
+        label.textAlignment = NSTextAlignment.center
+
+        // Create the image view
+        let image = UIImageView()
+        image.image = UIImage(named: friendAvatar)
+        // To maintain the image's aspect ratio:
+        let imageAspect = image.image!.size.width/image.image!.size.height
+        // Setting the image frame so that it's immediately before the text:
+        image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect, y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
+        image.contentMode = UIView.ContentMode.scaleAspectFit
+
+        // Add both the label and image view to the navView
+        navView.addSubview(label)
+        navView.addSubview(image)
+
+        // Set the navigation bar's navigation item's titleView to the navView
+        self.navigationItem.titleView = navView
+
+        // Set the navView's frame to fit within the titleView
+        navView.sizeToFit()
     }
     
     func loadMessages() {
@@ -43,9 +94,8 @@ class ChatViewController: UIViewController {
                            let messageBody = data[K.FStore.bodyField] as? String,
                            let messageDate = data[K.FStore.dateField] as? Double {
                             let newMessage = Message(sender: messageSender, senderName: messageSenderName, body: messageBody, date: NSDate(timeIntervalSince1970: messageDate))
-                            print("new message: \(newMessage)")
                             self.messages.append(newMessage)
-                            print("messages: \(self.messages)")
+
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
                                 let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
@@ -58,10 +108,9 @@ class ChatViewController: UIViewController {
         }
     }
     
-    func setCurrentUserName() {
+    func setCurrentSenderName() {
         if let emailLogin = Auth.auth().currentUser?.email {
             if emailLogin == "jarjit@mail.com" {
-                print("emailLogin: \(emailLogin)")
                 senderName = "Jarjit Singh"
             } else {
                 senderName = "Ismail bin Mail"
@@ -114,9 +163,10 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath)
-        cell.textLabel?.text = messages[indexPath.row].body
-        cell.detailTextLabel?.text = dateToStringFormated(date: messages[indexPath.row].date as Date)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! ChatCell
+        cell.nameLabel?.text = messages[indexPath.row].senderName
+        cell.bodyLabel?.text = messages[indexPath.row].body
+        cell.timeLabel?.text = dateToStringFormated(date: messages[indexPath.row].date as Date)
         return cell
     }
 }

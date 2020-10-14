@@ -22,8 +22,13 @@ class MessageListViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        title = K.appName
         navigationItem.hidesBackButton = true
+        title = K.appName
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        title = ""
     }
     
     @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
@@ -45,6 +50,8 @@ extension MessageListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.userIdentifier, for: indexPath) as UITableViewCell
+        cell.detailTextLabel?.text = "Show"
+        cell.backgroundColor = UIColor(named: "BrandBlue")
         
         if let user = Auth.auth().currentUser {
 
@@ -63,18 +70,11 @@ extension MessageListViewController: UITableViewDataSource, UITableViewDelegate 
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: K.messageSegue, sender: self)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
-        let verticalPadding: CGFloat = 8
-
-        let maskLayer = CALayer()
-        maskLayer.cornerRadius = 10    //if you want round edges
-        maskLayer.backgroundColor = UIColor.black.cgColor
-        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
-        cell.layer.mask = maskLayer
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: K.messageSegue, sender: self)
     }
 }
