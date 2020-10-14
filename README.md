@@ -3,10 +3,12 @@ a simple iOS chat Application based on firestore.
 
 ## Take a look
 
-<img src=Docs/welcome-screen.gif width=600> 
-<img src=Docs/login.png width=600>
-<img src=Docs/message.png width=600>
-<img src=Docs/chat_room.png width=600>
+<center>
+<img src=Docs/welcome-screen.gif width=150>
+<img src=Docs/login.png width=150>
+<img src=Docs/message.png width=150>
+<img src=Docs/chat_room.png width=150>
+</center>
 
 ## Specifications
 
