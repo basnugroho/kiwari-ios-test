@@ -23,7 +23,7 @@ a simple iOS chat Application based on firestore.
 2. `cd` to the unzipped folder
 3. run `pod install`
 4. open MyChatApp.xcworkspace with Xcode 12 or higher
-5. press <kbd>⌘ command </kbd> + <kbd> B </kbd> to build and run
+5. press <kbd>⌘ command </kbd> + <kbd> R </kbd> to build and run
 
 ## Checklist
 
