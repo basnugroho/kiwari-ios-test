@@ -24,6 +24,7 @@ struct K {
     struct FStore {
         static let collectionName = "messages"
         static let senderField = "sender"
+        static let nameField = "name"
         static let bodyField = "body"
         static let dateField = "date"
     }

@@ -19,18 +19,20 @@
 	<key>STORAGE_BUCKET</key>
 	<string>my-chat-ios13.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:1041123828748:ios:fbf3ee73e2f35d6f3f3a29</string>
 	<key>DATABASE_URL</key>
 	<string>https://my-chat-ios13.firebaseio.com</string>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<false/>
 </dict>
 </plist>
