@@ -28,8 +28,10 @@ class ChatViewController: UIViewController {
     }
     
     func loadMessages() {
-        //messages = []
-        db.collection(K.FStore.collectionName).getDocuments { (querySnapshot, error) in
+        db.collection(K.FStore.collectionName)
+            .order(by: K.FStore.dateField)
+            .addSnapshotListener { (querySnapshot, error) in
+            self.messages = []
             if let e = error {
                 print("error retrieving data \(e)")
             } else {
@@ -83,17 +85,13 @@ class ChatViewController: UIViewController {
         // Create the image view
         let image = UIImageView()
         
-        if let user = Auth.auth().currentUser {
-            if String(user.email!) == "jarjit@mail.com" {
-                label.text = "IsmailbinMail"
-                image.image = UIImage(named: "ismail@mail.com")
-            } else if String(user.email!) == "ismail@mail.com" {
-                label.text = "JarjitSingh"
-                image.image = UIImage(named: "jarjit@mail.com")
-            } else {
-                label.text = K.appName
-                image.image = UIImage(named: "ismail@mail.com")
-            }
+
+        if self.senderName == "Jarjit Singh" {
+            label.text = "Ismail bin Mail"
+            image.image = UIImage(named: "ismail@mail.com")
+        } else {
+            label.text = "Jarjit Sing"
+            image.image = UIImage(named: "jarjit@mail.com")
         }
         
         
@@ -159,7 +157,6 @@ extension ChatViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath)
         cell.textLabel?.text = messages[indexPath.row].body
         cell.detailTextLabel?.text = dateToStringFormated(date: messages[indexPath.row].date as Date)
-        print("message in cell: \(messages[indexPath.row].body)")
         return cell
     }
 }
