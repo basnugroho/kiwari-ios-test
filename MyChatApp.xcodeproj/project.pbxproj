@@ -25,6 +25,10 @@
 		70CAD1BF25360005009F7423 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CAD1BE25360005009F7423 /* MessageListViewController.swift */; };
 		70DBE05F253737EE00BAFBA0 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBE05D253737EE00BAFBA0 /* ChatCell.swift */; };
 		70DBE060253737EE00BAFBA0 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70DBE05E253737EE00BAFBA0 /* ChatCell.xib */; };
+		70DBE0A5253759C700BAFBA0 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DBE0A1253759C500BAFBA0 /* message.png */; };
+		70DBE0A6253759C700BAFBA0 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DBE0A2253759C500BAFBA0 /* login.png */; };
+		70DBE0A7253759C700BAFBA0 /* welcome-screen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 70DBE0A3253759C600BAFBA0 /* welcome-screen.gif */; };
+		70DBE0A8253759C700BAFBA0 /* chat_room.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DBE0A4253759C700BAFBA0 /* chat_room.png */; };
 		93D621A445F46A9244663188 /* Pods_MyChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7DC7164944F99C5023790BD /* Pods_MyChatApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +73,10 @@
 		70CAD1BE25360005009F7423 /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		70DBE05D253737EE00BAFBA0 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		70DBE05E253737EE00BAFBA0 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
+		70DBE0A1253759C500BAFBA0 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		70DBE0A2253759C500BAFBA0 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		70DBE0A3253759C600BAFBA0 /* welcome-screen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "welcome-screen.gif"; sourceTree = "<group>"; };
+		70DBE0A4253759C700BAFBA0 /* chat_room.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_room.png; sourceTree = "<group>"; };
 		C7DC7164944F99C5023790BD /* Pods_MyChatApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyChatApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -102,6 +110,7 @@
 		704D4D7425358F1800ECEB5F = {
 			isa = PBXGroup;
 			children = (
+				70DBE0AC253759E100BAFBA0 /* Docs */,
 				704D4D7F25358F1800ECEB5F /* MyChatApp */,
 				704D4D7E25358F1800ECEB5F /* Products */,
 				F28F943F98A86F0A600ECC62 /* Pods */,
@@ -166,6 +175,18 @@
 				70CAD1B92535F48B009F7423 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		70DBE0AC253759E100BAFBA0 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				70DBE0A4253759C700BAFBA0 /* chat_room.png */,
+				70DBE0A2253759C500BAFBA0 /* login.png */,
+				70DBE0A1253759C500BAFBA0 /* message.png */,
+				70DBE0A3253759C600BAFBA0 /* welcome-screen.gif */,
+			);
+			name = Docs;
+			path = "New Group/Docs";
 			sourceTree = "<group>";
 		};
 		D8A14C688D114165CA60CA7C /* Frameworks */ = {
@@ -301,6 +322,10 @@
 				70DBE060253737EE00BAFBA0 /* ChatCell.xib in Resources */,
 				704D4D8A25358F1B00ECEB5F /* Assets.xcassets in Resources */,
 				704D4D8825358F1800ECEB5F /* Main.storyboard in Resources */,
+				70DBE0A5253759C700BAFBA0 /* message.png in Resources */,
+				70DBE0A6253759C700BAFBA0 /* login.png in Resources */,
+				70DBE0A8253759C700BAFBA0 /* chat_room.png in Resources */,
+				70DBE0A7253759C700BAFBA0 /* welcome-screen.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +507,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -537,7 +562,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

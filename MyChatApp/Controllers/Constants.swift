@@ -9,6 +9,8 @@ struct K {
     static let appName = "💬 MyChatApp"
     static let cellIdentifier = "ReusableCell"
     static let userIdentifier = "userIdentifier"
+    static let welcomeToLoginSegue = "welcomeToLogin"
+    static let logOutToLoginSegue = "LogOutToLogin"
     static let cellNibName = "ChatCell"
     static let registerSegue = "RegisterToMessageList"
     static let loginSegue = "LoginToMessageList"
