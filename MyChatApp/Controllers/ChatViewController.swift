@@ -32,7 +32,17 @@ class ChatViewController: UIViewController {
         
         // chat room appearance
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
-        messageTextField.backgroundColor = UIColor.white
+        
+        // textfield
+        messageTextField.delegate = self
+        messageTextField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    
+    func adjustUITextViewHeight(arg : UITextView)
+    {
+        arg.translatesAutoresizingMaskIntoConstraints = true
+        arg.sizeToFit()
+        arg.isScrollEnabled = false
     }
     
     func addImageAndFriendNameAtNavbar(_ senderName: String) {
@@ -169,6 +179,16 @@ extension ChatViewController: UITableViewDataSource {
         cell.bodyLabel?.text = messages[indexPath.row].body
         cell.timeLabel?.text = dateToStringFormated(date: messages[indexPath.row].date as Date)
         return cell
+    }
+}
+
+extension ChatViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 40
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
     }
 }
 
