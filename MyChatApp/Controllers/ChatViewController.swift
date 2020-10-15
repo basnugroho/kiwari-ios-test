@@ -12,7 +12,8 @@ import Firebase
 class ChatViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var messageTextField: UITextField!
+    //@IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var messageTextView: UITextView!
     
     let db = Firestore.firestore()
     var senderName: String?
@@ -34,8 +35,24 @@ class ChatViewController: UIViewController {
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
         
         // textfield
-        messageTextField.delegate = self
-        messageTextField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        // messageTextField.delegate = self
+        // messageTextField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        // textView
+        self.view.addSubview(messageTextView)
+        messageTextView.translatesAutoresizingMaskIntoConstraints = false
+        [
+            messageTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            messageTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            messageTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            messageTextView.heightAnchor.constraint(equalToConstant: 50)
+            ].forEach{ $0.isActive = true }
+        
+        messageTextView.font = UIFont.preferredFont(forTextStyle: .headline)
+        
+        messageTextView.delegate = self
+        messageTextView.isScrollEnabled = true
+        textViewDidChange(messageTextView)
     }
     
     func adjustUITextViewHeight(arg : UITextView)
@@ -129,7 +146,7 @@ class ChatViewController: UIViewController {
     }
 
     @IBAction func sendPressed(_ sender: Any) {
-        if let messageBody = messageTextField.text, let messageSender = Auth.auth().currentUser?.email {
+        if let messageBody = messageTextView.text, let messageSender = Auth.auth().currentUser?.email {
             db.collection(K.FStore.collectionName).addDocument(data: [
                 K.FStore.senderField: messageSender,
                 K.FStore.nameField: self.senderName ?? "",
@@ -141,7 +158,7 @@ class ChatViewController: UIViewController {
                 } else {
                     print("save data success")
                     DispatchQueue.main.async {
-                        self.messageTextField.text = ""
+                        self.messageTextView.text = ""
                     }
                 }
             }
@@ -182,13 +199,27 @@ extension ChatViewController: UITableViewDataSource {
     }
 }
 
-extension ChatViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 40
-        let currentString: NSString = (textField.text ?? "") as NSString
-        let newString: NSString =
-            currentString.replacingCharacters(in: range, with: string) as NSString
-        return newString.length <= maxLength
+//extension ChatViewController: UITextFieldDelegate {
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let maxLength = 40
+//        let currentString: NSString = (textField.text ?? "") as NSString
+//        let newString: NSString =
+//            currentString.replacingCharacters(in: range, with: string) as NSString
+//        return newString.length <= maxLength
+//    }
+//}
+
+extension ChatViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        // print(textView.text)
+        let size = CGSize(width: 330.0, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        
+        textView.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = estimatedSize.height
+            }
+        }
     }
 }
-
