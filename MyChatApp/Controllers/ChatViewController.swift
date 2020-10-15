@@ -165,6 +165,7 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! ChatCell
         cell.nameLabel?.text = messages[indexPath.row].senderName
+        cell.bodyLabel?.numberOfLines = 0
         cell.bodyLabel?.text = messages[indexPath.row].body
         cell.timeLabel?.text = dateToStringFormated(date: messages[indexPath.row].date as Date)
         return cell

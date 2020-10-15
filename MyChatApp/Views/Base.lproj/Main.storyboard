@@ -367,13 +367,7 @@
                             <constraint firstItem="S6L-hg-cne" firstAttribute="top" secondItem="6YX-ca-E8f" secondAttribute="top" id="sQt-L5-8LV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Q5u-eL-Bgp">
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="tIH-Lw-8ia">
-                            <connections>
-                                <action selector="logOutPressed:" destination="lwd-AH-u8E" id="rdD-dW-IIq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Q5u-eL-Bgp"/>
                     <connections>
                         <outlet property="messageTextField" destination="UWj-GQ-Vph" id="I1F-z6-9ef"/>
                         <outlet property="tableView" destination="S6L-hg-cne" id="I06-4y-jdI"/>
