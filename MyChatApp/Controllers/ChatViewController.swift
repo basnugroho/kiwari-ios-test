@@ -14,6 +14,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     //@IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var sendButton: UIButton!
     
     let db = Firestore.firestore()
     var senderName: String?
@@ -40,26 +41,18 @@ class ChatViewController: UIViewController {
         
         // textView
         self.view.addSubview(messageTextView)
-        messageTextView.translatesAutoresizingMaskIntoConstraints = false
+        //messageTextView.translatesAutoresizingMaskIntoConstraints = false
         [
-            messageTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            messageTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            messageTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            messageTextView.heightAnchor.constraint(equalToConstant: 50)
-            ].forEach{ $0.isActive = true }
+        messageTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        messageTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+        messageTextView.rightAnchor.constraint(equalTo: sendButton.leftAnchor, constant: -10),
+        messageTextView.heightAnchor.constraint(equalToConstant: 80)
+        ].forEach{ $0.isActive = true }
         
         messageTextView.font = UIFont.preferredFont(forTextStyle: .headline)
-        
+        messageTextView.backgroundColor = UIColor(named: "BrandLightBlue")
         messageTextView.delegate = self
-        messageTextView.isScrollEnabled = true
         textViewDidChange(messageTextView)
-    }
-    
-    func adjustUITextViewHeight(arg : UITextView)
-    {
-        arg.translatesAutoresizingMaskIntoConstraints = true
-        arg.sizeToFit()
-        arg.isScrollEnabled = false
     }
     
     func addImageAndFriendNameAtNavbar(_ senderName: String) {
@@ -159,6 +152,7 @@ class ChatViewController: UIViewController {
                     print("save data success")
                     DispatchQueue.main.async {
                         self.messageTextView.text = ""
+                        self.textViewDidChange(self.messageTextView)
                     }
                 }
             }
@@ -179,6 +173,8 @@ class ChatViewController: UIViewController {
 
 extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.allowsSelection = false
+        tableView.isScrollEnabled = true
         return messages.count
     }
     
@@ -220,6 +216,13 @@ extension ChatViewController: UITextViewDelegate {
             if constraint.firstAttribute == .height {
                 constraint.constant = estimatedSize.height
             }
+        }
+        // enable scroll after number of lines
+        let numLines = Int((textView.contentSize.height / textView.font!.lineHeight))
+        if numLines > 3 {
+            textView.isScrollEnabled = true
+        } else {
+            textView.isScrollEnabled = false
         }
     }
 }

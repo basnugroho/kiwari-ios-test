@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jgK-6F-hYQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lwd-AH-u8E">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -332,9 +332,9 @@
                                             <action selector="sendPressed:" destination="lwd-AH-u8E" eventType="touchUpInside" id="hA3-0E-B2z"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yuc-Hz-xEp">
-                                        <rect key="frame" x="15" y="15" width="329" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yuc-Hz-xEp">
+                                        <rect key="frame" x="20" y="15" width="324" height="50"/>
+                                        <color key="backgroundColor" name="BrandLightBlue"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -345,7 +345,7 @@
                                     <constraint firstItem="Yuc-Hz-xEp" firstAttribute="top" secondItem="xlo-0G-XA6" secondAttribute="top" constant="15" id="0a0-BS-ULa"/>
                                     <constraint firstItem="pym-e9-R2r" firstAttribute="top" secondItem="xlo-0G-XA6" secondAttribute="top" constant="20" id="27T-Dx-HYk"/>
                                     <constraint firstItem="Yuc-Hz-xEp" firstAttribute="centerY" secondItem="pym-e9-R2r" secondAttribute="centerY" id="GPf-l9-Bfu"/>
-                                    <constraint firstItem="Yuc-Hz-xEp" firstAttribute="leading" secondItem="xlo-0G-XA6" secondAttribute="leading" constant="15" id="Pwo-uL-hE6"/>
+                                    <constraint firstItem="Yuc-Hz-xEp" firstAttribute="leading" secondItem="xlo-0G-XA6" secondAttribute="leading" constant="20" id="Pwo-uL-hE6"/>
                                     <constraint firstAttribute="height" constant="60" id="cV2-4S-DU8"/>
                                     <constraint firstItem="pym-e9-R2r" firstAttribute="leading" secondItem="Yuc-Hz-xEp" secondAttribute="trailing" constant="10" id="wJr-dn-sqT"/>
                                     <constraint firstAttribute="trailing" secondItem="pym-e9-R2r" secondAttribute="trailing" constant="20" id="ycp-Iy-yM8"/>
@@ -368,6 +368,7 @@
                     <navigationItem key="navigationItem" id="Q5u-eL-Bgp"/>
                     <connections>
                         <outlet property="messageTextView" destination="Yuc-Hz-xEp" id="EO3-S3-fDe"/>
+                        <outlet property="sendButton" destination="pym-e9-R2r" id="vjo-1S-tBA"/>
                         <outlet property="tableView" destination="S6L-hg-cne" id="I06-4y-jdI"/>
                     </connections>
                 </viewController>
@@ -479,9 +480,6 @@
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
