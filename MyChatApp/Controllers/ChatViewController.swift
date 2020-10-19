@@ -22,8 +22,8 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.dataSource = self
+        
         setCurrentSenderName()
         // show name and image at navbar
         if let sender = senderName {
@@ -35,24 +35,29 @@ class ChatViewController: UIViewController {
         // chat room appearance
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
         
+        // messageTextView
+        setupMessageTextView()
+        textViewDidChange(messageTextView)
+    }
+    
+    func setupMessageTextView() {
         // textfield
         // messageTextField.delegate = self
         // messageTextField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         // textView
         self.view.addSubview(messageTextView)
-        //messageTextView.translatesAutoresizingMaskIntoConstraints = false
+        messageTextView.translatesAutoresizingMaskIntoConstraints = false
         [
-        messageTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        messageTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
         messageTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-        messageTextView.rightAnchor.constraint(equalTo: sendButton.leftAnchor, constant: -10),
-        messageTextView.heightAnchor.constraint(equalToConstant: 80)
+        messageTextView.rightAnchor.constraint(equalTo: sendButton.rightAnchor, constant: -45),
+        messageTextView.heightAnchor.constraint(equalToConstant: 100)
         ].forEach{ $0.isActive = true }
         
         messageTextView.font = UIFont.preferredFont(forTextStyle: .headline)
         messageTextView.backgroundColor = UIColor(named: "BrandLightBlue")
         messageTextView.delegate = self
-        textViewDidChange(messageTextView)
     }
     
     func addImageAndFriendNameAtNavbar(_ senderName: String) {
@@ -191,6 +196,7 @@ extension ChatViewController: UITableViewDataSource {
         cell.bodyLabel?.numberOfLines = 0
         cell.bodyLabel?.text = messages[indexPath.row].body
         cell.timeLabel?.text = dateToStringFormated(date: messages[indexPath.row].date as Date)
+
         return cell
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7026F661253E00BF0004C39C /* Chataja - iOS Test 2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7026F660253E00BF0004C39C /* Chataja - iOS Test 2.pdf */; };
 		704D4D8125358F1800ECEB5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704D4D8025358F1800ECEB5F /* AppDelegate.swift */; };
 		704D4D8325358F1800ECEB5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704D4D8225358F1800ECEB5F /* SceneDelegate.swift */; };
 		704D4D8525358F1800ECEB5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704D4D8425358F1800ECEB5F /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		1182441A613CF8CF0526CB69 /* Pods-MyChatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChatApp.release.xcconfig"; path = "Target Support Files/Pods-MyChatApp/Pods-MyChatApp.release.xcconfig"; sourceTree = "<group>"; };
 		52A6E8614F13D00D00BD47E1 /* Pods-MyChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChatApp.debug.xcconfig"; path = "Target Support Files/Pods-MyChatApp/Pods-MyChatApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7026F660253E00BF0004C39C /* Chataja - iOS Test 2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Chataja - iOS Test 2.pdf"; sourceTree = "<group>"; };
 		704D4D7D25358F1800ECEB5F /* MyChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		704D4D8025358F1800ECEB5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		704D4D8225358F1800ECEB5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		70DBE0AC253759E100BAFBA0 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
+				7026F660253E00BF0004C39C /* Chataja - iOS Test 2.pdf */,
 				70DBE0A4253759C700BAFBA0 /* chat_room.png */,
 				70DBE0A2253759C500BAFBA0 /* login.png */,
 				70DBE0A1253759C500BAFBA0 /* message.png */,
@@ -290,7 +293,7 @@
 				};
 			};
 			buildConfigurationList = 704D4D7825358F1800ECEB5F /* Build configuration list for PBXProject "MyChatApp" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -324,6 +327,7 @@
 				704D4D8825358F1800ECEB5F /* Main.storyboard in Resources */,
 				70DBE0A5253759C700BAFBA0 /* message.png in Resources */,
 				70DBE0A6253759C700BAFBA0 /* login.png in Resources */,
+				7026F661253E00BF0004C39C /* Chataja - iOS Test 2.pdf in Resources */,
 				70DBE0A8253759C700BAFBA0 /* chat_room.png in Resources */,
 				70DBE0A7253759C700BAFBA0 /* welcome-screen.gif in Resources */,
 			);
@@ -507,13 +511,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -562,12 +567,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
